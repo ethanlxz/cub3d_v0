@@ -6,7 +6,7 @@
 /*   By: etlaw <ethanlxz@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 21:42:58 by etlaw             #+#    #+#             */
-/*   Updated: 2024/03/16 18:55:41 by etlaw            ###   ########.fr       */
+/*   Updated: 2024/03/16 22:30:18 by etlaw            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,9 @@ void	put_map(t_data *data)
 
 void drawing(t_data *data)
 {
-	// cast rays
-	raycast(data);
+	raycast(data); // cast rays
 	// print_img(data); // still testing
-	ft_color_win(data, data->mlx, 0);
-	put_map(data);
+	ft_color_win(data, data->mlx, 0); // colours green for the whole map
+	put_map(data); // puts minimap
 }
 

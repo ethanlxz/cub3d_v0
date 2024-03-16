@@ -6,7 +6,7 @@
 /*   By: etlaw <ethanlxz@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 01:12:46 by etlaw             #+#    #+#             */
-/*   Updated: 2024/03/16 19:44:34 by etlaw            ###   ########.fr       */
+/*   Updated: 2024/03/16 22:33:01 by etlaw            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	init_player_pos(char **map, t_player *player, char pv)
 	player->map = map;
 }
 
+//keystate could be removed
 void	init_keystate(t_keystate	*keystate)
 {
 	keystate->w = 0;
@@ -71,7 +72,7 @@ void	init_constants(t_data *data)
 	data->constant->tau = 2 * M_PI;
 }
 
-//keystate could be removed
+
 void init(t_data *data)
 {
 	t_mlx		mlx;
@@ -84,11 +85,10 @@ void init(t_data *data)
 	data->mlx = &mlx;
 	ray = malloc(sizeof(t_ray) * N_RAY);
 	data->rays = ray;
-	data->rays = &(ray[N_RAY]);
 	data->keystate = &keystate;
 	data->player = &player;
 	data->constant = &constant;
-	// need parser to set this one on map
+	// need parser to set height and width on the map
 	data->map_w = 11;
 	data->map_h = 11;
 	
