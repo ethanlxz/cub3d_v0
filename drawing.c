@@ -6,7 +6,7 @@
 /*   By: etlaw <ethanlxz@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 21:42:58 by etlaw             #+#    #+#             */
-/*   Updated: 2024/03/16 22:30:18 by etlaw            ###   ########.fr       */
+/*   Updated: 2024/03/18 22:32:20 by etlaw            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,19 @@ void	color_sqr(t_data *data, int x, int y, unsigned int color)
 			else
 				ft_mlx_put_px(data->mlx, xc + (data->cell_size * x),
 					yc + (data->cell_size * y), color);
+			if ((data->player->map_pos_x == x) && (data->player->map_pos_y == y))
+			{
+				// printf("%f = player x \n", data->player->pos.x );
+				// printf("%f = player y \n", data->player->pos.y );
+				ft_mlx_put_px(data->mlx, data->player->pos.x / data->cell_size,
+					data->player->pos.y / data->cell_size, 0xff0000);
+				ft_mlx_put_px(data->mlx, data->player->pos.x / data->cell_size + 1,
+					data->player->pos.y / data->cell_size, 0xff0000);
+				ft_mlx_put_px(data->mlx, data->player->pos.x / data->cell_size,
+					data->player->pos.y / data->cell_size + 1, 0xff0000);
+					ft_mlx_put_px(data->mlx, data->player->pos.x / data->cell_size + 1,
+					data->player->pos.y / data->cell_size + 1, 0xff0000);
+			}
 			yc++;
 		}
 		xc++;
@@ -78,9 +91,9 @@ void	put_map(t_data *data)
 	int	y;
 	
 	if (data->keystate->space)
-		data->cell_size = WIN_W / 40; // how big the map will expand
+		data->cell_size = WIN_W / 40; // how big the minimap will expand
 	else
-		data->cell_size = 10; // else map will be this big
+		data->cell_size = 10; // else minimap will be this big
 	y = 0;
 	while (data->map[y])
 	{

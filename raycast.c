@@ -6,7 +6,7 @@
 /*   By: etlaw <ethanlxz@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 23:20:49 by etlaw             #+#    #+#             */
-/*   Updated: 2024/03/16 22:34:16 by etlaw            ###   ########.fr       */
+/*   Updated: 2024/03/18 22:16:56 by etlaw            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,10 +141,10 @@ void	raycast(t_data *data)
 		data->rays[i].sin_a = sin(ray_angle);
 		data->rays[i].cos_a = cos(ray_angle);
 
-		printf(YELLOW);
-		printf("%i sin ray = %f", i , data->rays[i].sin_a);
-		printf("%i cos ray = %f", i , data->rays[i].cos_a);
-		printf(RESET);
+		// printf(YELLOW);
+		// printf("%i sin ray = %f", i , data->rays[i].sin_a);
+		// printf("%i cos ray = %f", i , data->rays[i].cos_a);
+		// printf(RESET);
 		
 		find_hor_steps(data, i, &dist, &delta_depth);
 		check_horz_inters(data, i, dist, delta_depth);
