@@ -6,7 +6,7 @@
 /*   By: etlaw <ethanlxz@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 01:12:46 by etlaw             #+#    #+#             */
-/*   Updated: 2024/03/18 22:07:07 by etlaw            ###   ########.fr       */
+/*   Updated: 2024/03/18 23:03:59 by etlaw            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,6 @@ void	init_player_pos(char **map, t_player *player, char pv)
 	// sets the actual map
 	player->map = map;
 }
-
-//keystate could be removed
-void	init_keystate(t_keystate	*keystate)
-{
-	keystate->w = 0;
-	keystate->a = 0;
-	keystate->s = 0;
-	keystate->d = 0;
-	keystate->l = 0;
-	keystate->r = 0;
-	keystate->tir = 0;
-	keystate->space = 0;
-	keystate->esc = 0;
-}
-
 void	init_mlx(t_mlx *mlx)
 {
 	mlx->mlx = mlx_init();
@@ -72,7 +57,7 @@ void	init_constants(t_data *data)
 	data->constant->tau = 2 * M_PI;
 }
 
-
+// able to remove keystate
 void init(t_data *data)
 {
 	t_mlx		mlx;
@@ -96,6 +81,5 @@ void init(t_data *data)
 	init_constants(data);
 	init_player_pos(data->map, &player, 'N'); // need the parser to put which direction the player is at
 	init_mlx(&mlx);
-	init_keystate(&keystate);
 	hooking(&mlx, data);
 }

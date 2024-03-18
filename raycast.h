@@ -6,35 +6,19 @@
 # include <fcntl.h>
 # include <stdlib.h> 
 # include <math.h>
-
-# include <stdio.h>
-# include <fcntl.h>
 # include <errno.h>
-# include <math.h>
-# include <time.h>
-# include <mlx.h>
 # include <signal.h>
 # include <stdbool.h>
 # include <stdint.h>
 
-
+# define PLAYER_SCALE 3
 # define WIN_W 1080 // screen width
 # define WIN_H 520 // screen height
 # define CELL_SIZE 500
 # define RAY_ANGLE_DIFF 0.05555555555 // each ray distance within player pov (60 / 1080)
 # define MAX_DEPTH 100
 # define N_RAY 1080 // number of ray being casted
-# define N 0
-# define E 90
-# define S 180
-# define W 270
 
-// enum e_trigo 
-// {
-// 	SIN = 1,
-// 	COS = 2,
-// 	TAN = 3
-// };
 # define ERROR "\033[1;31m"
 # define GREEN "\033[0;32m" 
 # define YELLOW "\033[0;33m"
@@ -81,7 +65,6 @@ typedef struct s_mlx
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
-	// t_texters	texters;
 }	t_mlx;
 
 // typedef struct s_position
@@ -121,15 +104,12 @@ typedef struct s_ray
 
 typedef struct s_player
 {
-	// actual player postion in pixel
-	t_coords	pos;
-	// map player position
-	int			map_pos_x;
+	t_coords	pos; // actual player postion in pixel
+	int			map_pos_x; // map player position
 	int			map_pos_y;
 	int			width;
 	int			height;
-	// player pov
-	float		angle;
+	float		angle; // player pov
 	float		speed;
 	float		rot_speed;
 	int			turn_direction; // Keys A D ARROW_LEFT ARROW_RIGHT
